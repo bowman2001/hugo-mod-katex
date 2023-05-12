@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>hugo-mod-katex</title>
-    <link rel="stylesheet" href="{{ (resources.Get "style.css").RelPermalink }}">
+    {{- $css := resources.Get "style.css" | minify | fingerprint -}}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
 <body>
 <h1>{{ .Title }}</h1>
