@@ -1,5 +1,5 @@
 ---
-title: hugo-mod-katex – a Hugo module for typesetting LaTeX
+title: hugo-mod-katex — a Hugo module for typesetting LaTeX
 ---
 
 LaTeX is the most popular typesetting system for the natural sciences. Its math syntax has been established as a quasi-standard for complex mathematical formulas.
@@ -26,7 +26,7 @@ Therefore, we can shield inline LaTeX from Markdown rendering with the `{{</* ka
 
 LaTeX formulas need to be surrounded by doubly escaped square brackets `\\[` and `\\]` or two dollar signs `$$`. The problem with the markup distortion may occur here, too. And we have the additional problem, that we can’t use new lines inside a formula. The solution is to enclose stand-alone formulas by a special code block with the identifier `katex`. 
 
-The following three formulas represent the discrete Binomial distribution, the reverse Fourier transformation and an equation with infinite nested fractions, which I can’t comprehend.
+The following three formulas represent the discrete Binomial distribution, the reverse Fourier transformation and an equation for infinite nested fractions, which I can’t comprehend (I’m a physicist and can only suspect someone from the mathematical sciences has proven this). 
 
 
 ```latex
@@ -63,7 +63,7 @@ Short expressions like \\(\frac{1}{5}\\) or formulas like $E = mc^2$ can be embe
 {{< katex >}}X_n + Y_n = Z_n\quad X_n,Y_n,Z_n\in\mathbf{R}{{< /katex >}}.
 
 ### Block
-All examples are looking good, whether we can grasp their meaning or not:
+All examples are looking good, whether we can grasp their meaning or not. The layout of the one I don’t understand is the most impressive one:
 
 ```katex
 \begin{equation}
