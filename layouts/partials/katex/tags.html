@@ -1,0 +1,3 @@
+{{- if .Page.Store.Get "hasKatex" -}}
+    {{ partialCached "katex/CSSandJS.html" . }}
+{{- end -}}
