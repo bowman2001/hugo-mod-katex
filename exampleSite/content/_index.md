@@ -6,9 +6,7 @@ LaTeX is the most popular typesetting system for the natural sciences. Its math 
 
 ## Layout
 
-This is a minimal example site with only a handful of CSS statements.
-
-LaTeX can be included either **inline** or as a separate **block**. The marvelous rendering library [KaTeX][katex] gets included on demand.
+LaTeX can be included either **inline** or as a separate **block**. The marvelous rendering library [KaTeX][katex] gets included on demand or with the parameter `katex: true` in the front-matter.
 ### Inline
 
 Short expressions like \\(\frac{1}{5}\\) or formulas like $E = mc^2$ can be embedded in the text. To get rid of eventual markup distortions we use the `katex` shortcode:
