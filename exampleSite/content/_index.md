@@ -4,15 +4,47 @@ title: hugo-mod-katex — a Hugo module for typesetting LaTeX
 
 LaTeX is the most popular typesetting system for the natural sciences. Its math syntax has been established as a quasi-standard for complex mathematical formulas.
 
-## Syntax
+## Layout
 
-LaTeX can be included either **inline** or as a separate **block**. The rendering library [KaTeX][katex] gets included on demand.
+This is a minimal example site with only a handful of CSS statements.
+
+LaTeX can be included either **inline** or as a separate **block**. The marvelous rendering library [KaTeX][katex] gets included on demand.
+### Inline
+
+Short expressions like \\(\frac{1}{5}\\) or formulas like $E = mc^2$ can be embedded in the text. To get rid of eventual markup distortions we use the `katex` shortcode:
+{{< katex >}}X_n + Y_n = Z_n\quad X_n,Y_n,Z_n\in\mathbf{R}{{< /katex >}}.
+
+### Block
+All examples are looking good, whether we can grasp their meaning or not. The layout of the last one which I don’t understand is most impressive:
+
+```katex
+\begin{equation}
+B_{n,p}(k) = {n \choose k} p^k (1-p)^{n-k}
+\end{equation}
+```
+
+```katex
+\begin{equation}
+f(x) = \int_{-\infty}^\infty\hat f(\xi)\, e^{2 \pi i \xi x}\,d\xi
+\end{equation}
+```
+
+```katex
+\begin{equation}
+\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} = \\
+1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots}}}}
+\end{equation}
+```
+
+[katex]: https://katex.org
+
+## Syntax
 
 ### Inline
 
-Inline LaTeX needs to be surrounded by single dollars like `$E = mc^2$` or doubly escaped parens like `\\(\frac{1}{5}\\)`. Because this LaTeX is processed by Hugo’s Markdown renderer before the KateX scripts are applied by browsers, there are two caveats:
+Inline LaTeX needs to be surrounded by single dollars like `$E = mc^2$` (or doubly escaped parenthesis like `\\(\frac{1}{5}\\)`). Because the content is processed by Hugo’s Markdown renderer before the KateX scripts are applied by browsers, there are two caveats:
 
-- The rendering may falsely interpret some LaTeX markup as Markdown markup. This can distort the equations and we would need to escape every Markdown markup character to prevent this.
+- The rendering may falsely interpret some LaTeX markup as Markdown markup because there is some syntax overlap. This can distort the equations and we would need to escape every Markdown markup character to prevent this.
 
 - Single dollars are now markup for KateX and this is not always wanted.
 
@@ -24,9 +56,9 @@ Therefore, we can shield inline LaTeX from Markdown rendering with the `{{</* ka
 
 ### Block
 
-LaTeX formulas need to be surrounded by doubly escaped square brackets `\\[` and `\\]` or two dollar signs `$$`. The problem with the markup distortion may occur here, too. And we have the additional problem, that we can’t use new lines inside a formula. The solution is to enclose stand-alone formulas by a special code block with the identifier `katex`. 
+LaTeX formulas need to be surrounded by two dollar signs `$$` (or doubly escaped square brackets `\\[` and `\\]`). The problem with the markup distortion may occur here, too. And we have the additional problem, that we can’t use new lines inside a formula. The solution is to enclose stand-alone formulas by a special code block with the identifier `katex`. 
 
-The following three formulas represent the discrete Binomial distribution, the reverse Fourier transformation and an equation for infinite nested fractions, which I can’t comprehend (I’m a physicist and can only suspect someone from the mathematical sciences has proven this). 
+The following three formulas are shown above and represent the discrete Binomial distribution, the reverse Fourier transformation, and an equation for infinite nested fractions, which I can’t comprehend (I’m a physicist and can only suspect a Mathematician has proven this. ;-)).
 
 
 ```latex
@@ -55,33 +87,3 @@ f(x) = \int_{-\infty}^\infty\hat f(\xi)\, e^{2 \pi i \xi x}\,d\xi
 ‍```
 ```
 
-## Layout
-
-### Inline
-
-Short expressions like \\(\frac{1}{5}\\) or formulas like $E = mc^2$ can be embedded in the text. To get rid of eventual markup distortions we use the `katex` shortcode:
-{{< katex >}}X_n + Y_n = Z_n\quad X_n,Y_n,Z_n\in\mathbf{R}{{< /katex >}}.
-
-### Block
-All examples are looking good, whether we can grasp their meaning or not. The layout of the one I don’t understand is the most impressive one:
-
-```katex
-\begin{equation}
-B_{n,p}(k) = {n \choose k} p^k (1-p)^{n-k}
-\end{equation}
-```
-
-```katex
-\begin{equation}
-f(x) = \int_{-\infty}^\infty\hat f(\xi)\, e^{2 \pi i \xi x}\,d\xi
-\end{equation}
-```
-
-```katex
-\begin{equation}
-\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} = \\
-1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots}}}}
-\end{equation}
-```
-
-[katex]: https://katex.org
