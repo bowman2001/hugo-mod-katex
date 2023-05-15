@@ -1,12 +1,12 @@
 # hugo-mod-katex
 
-Render LaTeX in Markdown content without too much of a hassle. This module implements some good practices for the marvelous LaTeX renderer [KaTeX](https://katex.org). They have been around for a while in the Hugo community.
+Render LaTeX in Markdown content without too much of a hassle. This module implements some good practices for the LaTeX renderer [KaTeX](https://katex.org). They have been around for a while in the Hugo community.
 
-KaTeX is a Javascript library by [Emily Eisenberg](https://github.com/xymostech) and [Sophie Alpert](https://sophiebits.com/) that is loaded on demand by the templates of this module.
+KaTeX is a Javascript library by [Emily Eisenberg](https://github.com/xymostech) and [Sophie Alpert](https://sophiebits.com/) that is loaded on demand with the templates of this module.
 
-There are two strategies to include the library: fetch it from a **public CDN** or **self-served**.
+There are two strategies to include the library: fetch it from the **public CDN** or **self-served**.
 
-At the moment the modules is using the **CDN**. All the necessary scripts are available to serve everything from your own site.
+At the moment the module is using the official CDN <https://jsdelivr.com>. All the necessary scripts are available to serve everything from your site, but the size is considerable because KaTeX ships with around 30MB of LaTeX fonts.
 
 ## Inline LaTeX
 
@@ -34,7 +34,7 @@ B_{n,p}(k) = {n \choose k} p^k (1-p)^{n-k}
 
 ## Styling
 
-In case we need to style them the latex expressions get wrapped into HTML tags.
+The latex expressions get wrapped into HTML tags so we can style them according to our layout:
 
 - The shortcode adds a `span`-tag with the class `.katex-inline`.
 
@@ -42,4 +42,4 @@ In case we need to style them the latex expressions get wrapped into HTML tags.
 
 ## Include the LaTeX renderer
 
-To include KaTeX into your pages you need to add the partial `katex/tags.html` at the end of your HTML body (probably in `layouts/_default/baseof.html`). The KaTeX library files are added to a page if the shortcode or the render hook is called once, or if the parameter `katex: true` is present in the front-matter.
+To include KaTeX into your pages you need to add the partial `katex/tags.html` at the end of your HTML body (probably in `layouts/_default/baseof.html`). The KaTeX library files are added to a page if the shortcode or the render hook is called once, or if the parameter `katex: true` (YAML) is present in the front-matter.
