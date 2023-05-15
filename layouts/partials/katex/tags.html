@@ -1,3 +1,3 @@
-{{- if or (.Page.Store.Get "hasKatex") .Params.katex -}}
+{{- if or (.Page.Store.Get "hasKatex") (.Page.Store.Get "hasChem") .Params.math .Params.chem -}}
     {{- partialCached "katex/CSSandJS_CDN.html" . }}
 {{- end -}}

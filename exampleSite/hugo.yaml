@@ -1,5 +1,4 @@
 baseURL: https://example.org
-title: hugo-mod-katex
-module:
-  imports:
-    - path: "github.com/bowman2001/hugo-mod-katex"
+module: 
+  imports: 
+    - path: github.com/bowman2001/hugo-mod-katex
