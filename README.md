@@ -2,7 +2,11 @@
 
 Render LaTeX in Markdown content without too much of a hassle. This module implements some good practices for the marvelous LaTeX renderer [KaTeX](https://katex.org). They have been around for a while in the Hugo community.
 
-KaTeX is a Javascript library by [Emily Eisenberg](https://github.com/xymostech) and [Sophie Alpert](https://sophiebits.com/) that is self-served and loaded on demand by the templates of this module.
+KaTeX is a Javascript library by [Emily Eisenberg](https://github.com/xymostech) and [Sophie Alpert](https://sophiebits.com/) that is loaded on demand by the templates of this module.
+
+There are two strategies to include the library: fetch it from a **public CDN** or **self-served**.
+
+At the moment the modules is using the **CDN**. All the necessary scripts are available to serve everything from your own site.
 
 ## Inline LaTeX
 
@@ -28,6 +32,14 @@ B_{n,p}(k) = {n \choose k} p^k (1-p)^{n-k}
 ‍```
 ```
 
-## LaTeX renderer
+## Styling
 
-To include the LaTeX renderer KaTeX into your pages you need to add the partial `katex/tags.html` at the end of your HTML body (probably `layouts/_default/baseof.html`). If there is no call to the shortcode or the code block render hook this partial does nothing. Should you already have Markdown content for Hugo with working formulas you only need to use one of them once on every page to activate the renderer.
+In case we need to style them the latex expressions get wrapped into HTML tags.
+
+- The shortcode adds a `span`-tag with the class `.katex-inline`.
+
+- The render-hook adds a `div`-tag with the class `.katex-block`.
+
+## Include the LaTeX renderer
+
+To include KaTeX into your pages you need to add the partial `katex/tags.html` at the end of your HTML body (probably in `layouts/_default/baseof.html`). The KaTeX library files are added to a page if the shortcode or the render hook is called once, or if the parameter `katex: true` is present in the front-matter.

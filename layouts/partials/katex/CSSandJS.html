@@ -2,7 +2,7 @@
 {{- $js := resources.Get "katex/katex.js" | minify | fingerprint }}
 {{- $js_render := slice
     (resources.Get "katex/contrib/auto-render.js")
-    (resources.Get "js/katex_settings.js") }}
+    (resources.Get "js/katex_render_settings.js") }}
 {{- $js_render = $js_render | resources.Concat "katex_render.js" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 <script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>

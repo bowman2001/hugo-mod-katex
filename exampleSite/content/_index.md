@@ -44,7 +44,7 @@ Inline LaTeX needs to be surrounded by single dollars like `$E = mc^2$` (or doub
 
 - The rendering may falsely interpret some LaTeX markup as Markdown markup because there is some syntax overlap. This can distort the equations and we would need to escape every Markdown markup character to prevent this.
 
-- Single dollars are now markup for KateX and this is not always wanted.
+- Single dollars are now markup for KateX and this is not always wanted. But to use the dollar as a currency like `100$` &rarr; 100$ is always fine, because KaTeX expects a whitespace in front of it as a delimiter.
 
 Therefore, we can shield inline LaTeX from Markdown rendering with the `{{</* katex */>}}` shortcode like this:
 
@@ -84,4 +84,3 @@ f(x) = \int_{-\infty}^\infty\hat f(\xi)\, e^{2 \pi i \xi x}\,d\xi
 \end{equation}
 ‍```
 ```
-
