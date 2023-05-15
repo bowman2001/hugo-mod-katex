@@ -2,7 +2,8 @@ const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
 const PATHS = {
   source: path.join(__dirname, 'node_modules', 'katex', 'dist'),
-  target: path.join(__dirname, 'assets', 'katex')
+  assets: path.join(__dirname, 'assets', 'katex'),
+  fonts: path.join(__dirname, 'static', 'katex', 'fonts')
 }
 
 module.exports = {
@@ -11,9 +12,20 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: path.join(PATHS.source, 'katex.*'), to: PATHS.target },
-        { from: path.join(PATHS.source, 'contrib'), to: path.join(PATHS.target, 'contrib') },
-        { from: path.join(PATHS.source, 'fonts'), to: path.join(PATHS.target, 'fonts') },
+        { 
+          from: PATHS.source,
+          globOptions: {
+            ignore: ["**/fonts/*", "**/README.md"]
+          },
+          to: PATHS.assets 
+        },
+        { 
+          from: path.join(PATHS.source, 'fonts'),
+          globOptions: { 
+            ignore: ["**/*.ttf"]
+          }, 
+          to: PATHS.fonts
+        },
       ],
     }),
   ]

@@ -39,9 +39,9 @@ f(x) = \int_{-\infty}^\infty\hat f(\xi)\, e^{2 \pi i \xi x}\,d\xi
 
 ### Chemistry
 
-We can write simple formulas **inline** like {{< chem >}}\ce{H_{2}0(l)}{{< /chem >}} or generate **blocks** for complex reactions:
+We can write simple formulas **inline** like {{< chem >}}\ce{H_{2}0(l)}{{< /chem >}} or generate **blocks** for reactions:
 
-```math
+```chem
 \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-}
 ```
 
@@ -57,7 +57,7 @@ Inline LaTeX needs to be surrounded by single dollars like `$E = mc^2$` (or doub
 
 - Single dollars are now markup for KateX and this is not always wanted. But to use the dollar as a currency like `100$` &rarr; 100$ is always fine, because KaTeX expects a whitespace in front of it as a delimiter.
 
-Therefore, we can shield inline LaTeX from Markdown rendering with the `{{</* math */>}}` shortcode like this:
+Therefore, we can shield inline LaTeX from Markdown rendering with the `{{</* math */>}}` or `{{</* chem */>}}` shortcode like this:
 
 ```md
 {{</* math */>}}Z_n = X_n + Y_n\quad X_n,Y_n,Z_n\in\mathbf{R}{{</* /math */>}}
@@ -68,7 +68,6 @@ Therefore, we can shield inline LaTeX from Markdown rendering with the `{{</* ma
 LaTeX formulas need to be surrounded by two dollar signs `$$` (or doubly escaped square brackets `\\[` and `\\]`). The problem with the markup distortion may occur here, too. And we have the additional problem, that we can’t use new lines inside a formula. The solution is to enclose stand-alone formulas by a special code block with the identifier `math`. 
 
 The following three formulas are shown above and represent the discrete Binomial distribution, the reverse Fourier transformation, and an equation for infinite nested fractions, which I can’t comprehend (I’m a physicist and can only suspect a Mathematician has proven this. ;-)).
-
 
 ```latex
 ‍```math
@@ -86,12 +85,20 @@ f(x) = \int_{-\infty}^\infty\hat f(\xi)\, e^{2 \pi i \xi x}\,d\xi
 ‍```
 ```
 
-```latex {.semi-large}
+```latex
 ‍```math
 \begin{equation}
 \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} = \\
 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} \\
 {1+\frac{e^{-8\pi}} {1+\cdots}}}}
 \end{equation}
+‍```
+```
+
+The last chemistry formula describes reactions between mercury and iodine:
+
+```latex
+‍```chem
+\ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-}
 ‍```
 ```
