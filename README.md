@@ -6,9 +6,11 @@ KaTeX is a Javascript library by [Emily Eisenberg](https://github.com/xymostech)
 
 There are two strategies to include the library: fetch it from the **public CDN** or **self-served**.
 
-At the moment the module is self-serving. The LaTeX fonts include only WOFF and WOFF2, but their size is still considerable.
+At the moment the module is self-serving. Only WOFF and WOFF2 fonts are included because TTF seems outdated to me.
 
-## Inline LaTeX
+## Syntax 
+
+### Inline LaTeX
 
 LaTeX notation surrounded by the dollar sign `$` or parens with two preceding backslashes (`\\(` and `\\)`) get rendered in line with the surrounding text. But there are two caveats:
 
@@ -18,7 +20,7 @@ LaTeX notation surrounded by the dollar sign `$` or parens with two preceding ba
 
 The module provides the shortcodes `math` and `chem` to prevent this. Instead of using dollars we use `{{< math >}}Z_n = X_n + Y_n\quad X_n,Y_n,Z_n\in\mathbf{R}{{< /math >}}` or `{{< chem >}}\ce{H_{2}O(l)}{{< /chem >}}` for example and can be sure that the underlines `_` are not rendered into bogus emphasis by Hugo.
 
-## LaTeX blocks
+### LaTeX blocks
 
 LaTeX notation surrounded by two dollar signs `$$` or squared brackets with two preceding backlashes (`\\[` and `\\]`) are rendered into blocks (display mode). But there are also two caveats: The mentioned markup overlap and the need to write every formula into one line.
 
@@ -42,4 +44,4 @@ The latex expressions get wrapped into HTML tags so we can style them according 
 
 ## Include the LaTeX renderer
 
-To include KaTeX into your pages you need to add the partial `katex/tags.html` at the end of your HTML body (probably in `layouts/_default/baseof.html`). The KaTeX library files are added to a page if the shortcode or the render hook is called once, or if the parameters `math: true` or `chem: true` (YAML) are present in the front-matter.
+To include KaTeX into your pages you need to add the partial `katex/tags.html` at the end of your HTML body. The KaTeX library files are added to a page if the shortcode or the render hook is called once, or if the parameters `math: true` or `chem: true` are present in the front-matter (YAML).
