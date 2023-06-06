@@ -1,12 +1,10 @@
 # hugo-mod-katex
 
-Render LaTeX in Markdown content without too much of a hassle. This module implements some good practices for the LaTeX renderer [KaTeX](https://katex.org). They have been around for a while in the Hugo community.
+Render LaTeX in Markdown content without too much of a hassle.
 
-KaTeX is a Javascript library by [Emily Eisenberg](https://github.com/xymostech) and [Sophie Alpert](https://sophiebits.com/) that is loaded on demand with the templates of this module.
+KaTeX is a Javascript library by [Emily Eisenberg](https://github.com/xymostech) and [Sophie Alpert](https://sophiebits.com/) that is loaded on demand.
 
-There are two strategies to include the library: fetch it from the **public CDN** or **self-served**.
-
-At the moment the module is self-serving. Only WOFF and WOFF2 fonts are included because TTF seems outdated to me.
+The module includes the necessary Javascript and font files (WOFF and WOFF2) for self-hosting.
 
 ## Syntax 
 
