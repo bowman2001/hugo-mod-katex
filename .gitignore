@@ -2,6 +2,7 @@
 .vscode
 .hugo_build.lock
 package-lock.json
+yarn.lock
 node_modules
 resources
 public
