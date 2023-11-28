@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
 <body>
-<h1>{{ .Title }}</h1>
+<h1>{{ .Title | site.Home.RenderString }}</h1>
 {{ .Content }}
 {{ partial "katex/tags.html" . }}
 </body>
